@@ -19,11 +19,11 @@
     "url": "https://github.com/Semantics3/2048-as-a-service/issues"
   },
   "dependencies": {
-    "restify": "~4.1.0",
-    "crypto": "0.0.3",
-    "node-uuid": "~1.4.1",
-    "weighted": "~0.2.2",
+    "bunyan": "~0.22.1",
     "cli-table": "~0.3.0",
-    "bunyan": "~0.22.1"
+    "crypto": "0.0.3",
+    "node-uuid": "~1.4.4",
+    "restify": "^8.5.1",
+    "weighted": "~0.2.2"
   }
 }

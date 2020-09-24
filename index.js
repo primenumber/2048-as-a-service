@@ -21,21 +21,23 @@ var server = restify.createServer({
     version: '0.1.0'
 });
 server.use(
-    restify.throttle({
+    restify.plugins.throttle({
         burst: 100,
         rate: 50,
         xff: true,
    })
 );
-server.use(restify.acceptParser(server.acceptable));
-server.use(restify.queryParser());
-server.use(restify.bodyParser());
+server.use(restify.plugins.acceptParser(server.acceptable));
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
 
-server.on('after', restify.auditLogger({
+server.on('after', restify.plugins.auditLogger({
   log: bunyan.createLogger({
     name: 'audit',
     stream: process.stdout
-  })
+  }),
+  event: 'after',
+  printLog: false
 }));
 
 
