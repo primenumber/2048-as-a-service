@@ -8,12 +8,15 @@ internet-of-things devices!
 # Our Launch
 Read more about our launch in here: https://engineering.semantics3.com/announcing-2048-as-a-service-d116a82192a2
 
-Also check out our 2048 - Startup Growth Edition [MVP](http://2048.semantics3.com/2048.html), which was built to showcase the 
-2048-as-a-service API.
+~~Also check out our 2048 - Startup Growth Edition [MVP](http://2048.semantics3.com/2048.html), which was built to showcase the 
+2048-as-a-service API.~~
 
 
 # Test it out
-This API is currently running live on host http://2048.semantics3.com/
+
+It seems that http://2048.semantics3.com/ is no longer hosted.
+
+~~This API is currently running live on host http://2048.semantics3.com/
 
 Type this command on the command line [full example](#full-example-gameplay)
 
@@ -23,7 +26,7 @@ or this to start a full fledged text-based 2048 game session - (a sexy perl one-
 
     perl -e 'my $host = "http://2048.semantics3.com/hi/";my $cmd = "curl --silent -L $host"."start";my $output = `$cmd`;my $session_id = $output;$session_id=~s/.*?ID:\s(\w+).*/$1/si;my %keyMap = ( 'w' => 0, 'd' => 1, 's' => 2, 'a' => 3);print STDERR $output,"\n";while(1) { print STDERR "Input (w - up, a - left, d - right, s - down):\n"; my $userInput = <STDIN>; chomp ($userInput); if(defined($keyMap{$userInput})) { $userInput = $keyMap{$userInput}; } else { print STDERR "Invalid move.. w - up, a - left, d - right, s - down\n"; next; } my $cmd = "curl --silent $host"."state/$session_id/move/$userInput"; my $output = `$cmd`; print STDERR "\n$output\n"; if($output=~/Message:/si) { exit(0); }}'
 
-To demonstrate the advanced features of our 2048-as-a-service we have also built a complex, front-end app called the 2048 – Startup Growth Edition [MVP](http://2048.semantics3.com/2048).
+To demonstrate the advanced features of our 2048-as-a-service we have also built a complex, front-end app called the 2048 – Startup Growth Edition [MVP](http://2048.semantics3.com/2048).~~
 
 
 # The API
@@ -58,12 +61,12 @@ All game sessions will be terminated if there is more than `5 minutes` of inacti
 
 To build and install from the latest source:
 
-    $ git clone git@github.com:Semantics3/2048-as-a-service.git
+    $ git clone git@github.com:primenumber/2048-as-a-service.git
     $ cd 2048-as-a-service
     $ npm install
     $ node index.js (Will start 2048-as-a-service running on port 8080)
 
-The latest version of node at the time of release was v0.11.12.
+~~The latest version of node at the time of release was v0.11.12.~~ I tested v10.19.0.
 Compatibility with other versions is not guaranteed.
 
 # API Reference (JSON mode)
@@ -342,6 +345,7 @@ Pretty self explanatory.
 #Authors
 
 By [Sivamani Varun](http://www.netvarun.com/).
+By [primenumber](https://poyo.me/).
 
 
 #Credits
